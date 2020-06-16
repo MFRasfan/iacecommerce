@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const {ObjectId} = mongoose.Schema
+const mongoose = require("mongoose");
+const { ObjectId } = mongoose.Schema;
 
 const productSchema = new mongoose.Schema(
     {
@@ -22,34 +22,26 @@ const productSchema = new mongoose.Schema(
         },
         category: {
             type: ObjectId,
-            ref: 'Category',
+            ref: "Category",
             required: true
         },
         quantity: {
             type: Number
-           
         },
-
         sold: {
             type: Number,
             default: 0
-           
         },
         photo: {
             data: Buffer,
-            contentType: String,
-            
+            contentType: String
         },
-        shipping:{
+        shipping: {
             required: false,
             type: Boolean
-            
-        },
-        
+        }
     },
     { timestamps: true }
 );
 
-
-
-module.exports = mongoose.model('Product', productSchema);
+module.exports = mongoose.model("Product", productSchema);
